@@ -1,4 +1,7 @@
-/* Automagical updates */
+add_action('admin_head', 'thai_check_notice');
+function thai_check_notice() {
+    echo '<style> div#flatsome-notice {display: none;}</style>';
+}
 function wupdates_check_YL6Wd( $transient ) {
     // First get the theme directory name (the theme slug - unique)
     $slug = basename( get_template_directory() );
@@ -75,7 +78,7 @@ function wupdates_add_id_YL6Wd( $ids = array() ) {
     return $ids;
 }
 add_filter( 'wupdates_gather_ids', 'wupdates_add_id_YL6Wd', 10, 1 );
-update_option( 'flatsome_wup_purchase_code', '846b8d75-85b3-4b3e-976c-2e29d386339d' );
+update_option( 'flatsome_wup_purchase_code', '26366b1c-0eb3-46fb-a196-33d20aa32c1d' );
 update_option( 'flatsome_wup_supported_until', '14.07.2027' );
 update_option( 'flatsome_wup_buyer', 'THANHTHAI.ORG' );
 update_option( 'flatsome_wup_sold_at', time() );
