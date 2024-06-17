@@ -78,9 +78,20 @@ function wupdates_add_id_YL6Wd( $ids = array() ) {
     return $ids;
 }
 add_filter( 'wupdates_gather_ids', 'wupdates_add_id_YL6Wd', 10, 1 );
-update_option( 'flatsome_wup_purchase_code', '26366b1c-0eb3-46fb-a196-33d20aa32c1d' );
-update_option( 'flatsome_wup_supported_until', '14.07.2027' );
-update_option( 'flatsome_wup_buyer', 'THANHTHAI.ORG' );
-update_option( 'flatsome_wup_sold_at', time() );
-delete_option( 'flatsome_wup_errors', '' );
-delete_option( 'flatsome_wupdates', '');
+$site_url = get_site_url();
+$domain_name = wp_parse_url($site_url, PHP_URL_HOST);
+$random_id = wp_generate_password(12, false);
+$update_option_data = array(
+    'id'           => $random_id,
+    'type'         => 'PUBLIC',
+    'domain'       => $domain_name,
+    'registeredAt' => '2021-07-18T12:51:10.826Z',
+    'purchaseCode' => '26366b1c-0eb3-46fb-a196-33d20aa32c1d',
+    'licenseType'  => 'Regular License',
+    'errors'       => array(),
+    'show_notice'  => false
+);
+update_option('flatsome_registration', $update_option_data, 'yes');
+
+
+        
